@@ -15,6 +15,7 @@ import { TabView, SceneMap, TabBar } from 'react-native-tab-view'
 import { COLORS } from '../../assets/colors/color'
 import ImageCard from '../../components/ImageCard'
 import Data from '../../data/ImageQuoties.json'
+import QuotesTextScreen from '../QuotesTextScreen/QuotesTextScreen'
 
 const { width, height } = Dimensions.get("window")
 
@@ -28,16 +29,16 @@ const App = () => {
   const [routes] = useState([
     { key: 'categories', title: 'categories' },
     { key: 'movies', title: 'movies' },
-    { key: 'new', title: 'new' },
     { key: 'text', title: 'text' },
+    { key: 'new', title: 'new' },
     { key: 'random', title: 'random' },
     { key: 'sticker', title: 'sticker' },
   ])
 
   useEffect(() => {
     // console.log(Data)
-    // getData()
-    for (var i = 1; i < 42; i++) {
+    getData()
+    for (var i = 1; i <= 10; i++) {
       movieImageUrls.push(`https://web-series-quotes.herokuapp.com/generate/dark/${i}/image?src=dark&size=150&color=yellow`)
     }
   }, []);
@@ -103,7 +104,6 @@ const App = () => {
   };
 
   const firstRouteRenderItem = ({ item }) => {
-    console.log('re-rendered again....!!')
     return (
       <ImageCard url={item} />
     )
@@ -132,13 +132,8 @@ const App = () => {
             return (
               <ImageCard url={item} />
             )
-            // <ImageCard url={item} />
           })
         }
-        {/* <FlatList
-          keyExtractor={() => (Math.random() * 10000).toString()}
-          data={movieImageUrls}
-          renderItem={firstRouteRenderItem} /> */}
       </ScrollView>
 
     )
@@ -152,7 +147,15 @@ const App = () => {
 
   const FourthRoute = () => (
     <View>
-      <Text>ThrdRoute Route...</Text>
+      <FlatList
+        data={dataSource}
+        keyExtractor={(item, index) => index.toString()}
+        ItemSeparatorComponent={ItemSeparatorView}
+        renderItem={ItemView}
+        ListFooterComponent={renderFooter}
+        onEndReached={getData}
+        onEndReachedThreshold={0.5}
+      />
     </View>
   );
 

@@ -21,6 +21,7 @@ export default StyleSheet.create({
     imageStyle: {
         height: 200,
         width: '96%',
-        margin: 8
+        margin: 8,
+        backgroundColor: COLORS.loader_background
     }
 });

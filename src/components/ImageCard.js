@@ -86,7 +86,7 @@ const ImageCard = (props) => {
             <TouchableOpacity
                 activeOpacity={0.7}>
                 <Image
-                    resizeMode='stretch'
+                    resizeMode='contain'
                     source={{ uri: props.url }}
                     style={styles.imageStyle}
                 />
