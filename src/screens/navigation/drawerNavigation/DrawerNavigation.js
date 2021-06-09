@@ -2,7 +2,7 @@ import * as React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import MyActivityScreen from '../../myActivityScreen/MyActivityScreen';
-import BuyerHomeScreen from '../../buyerHomeScreen/BuyerHomeScreen'
+import HomeScreen from '../../homeScreen/HomeScreen'
 import FavoritesScreen from '../../favoritesScreen/FavoritesScreen';
 import AdvanceSearchScreen from '../../advanceSearchScreen/AdvanceSearchScreen';
 import CustomSidebarMenu from '../../../components/CustomSideBar';
@@ -29,11 +29,11 @@ const DrawerNavigation = () => {
   return (
     <Drawer.Navigator
       drawerContent={props => <CustomSidebarMenu {...props} />}
-      initialRouteName={ScreensName.BuyerHomeScreen}
+      initialRouteName={ScreensName.HomeScreen}
       screenOptions={navHeaderHandler}>
       <Drawer.Screen
-        name={ScreensName.BuyerHomeScreen}
-        component={BuyerHomeScreen}
+        name={ScreensName.HomeScreen}
+        component={HomeScreen}
       />
       <Drawer.Screen
         name={ScreensName.FavoritesScreen}

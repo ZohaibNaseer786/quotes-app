@@ -63,7 +63,7 @@ const CustomSidebarMenu = props => {
           <TouchableOpacity
             activeOpacity={0.5}
             onPress={() => {
-              props.navigation.navigate(ScreensName.BuyerHomeScreen);
+              props.navigation.navigate(ScreensName.HomeScreen);
             }}>
             <View style={stylesSidebar.contentStyle}>
               {DrawerIconHandler('home', 1)}
@@ -82,7 +82,7 @@ const CustomSidebarMenu = props => {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity
+          {/* <TouchableOpacity
             activeOpacity={0.5}
             onPress={() => {
               props.navigation.navigate(ScreensName.AdvanceSearchScreen);
@@ -102,7 +102,7 @@ const CustomSidebarMenu = props => {
               {DrawerIconHandler('newspaper-outline', 0)}
               <Text style={stylesSidebar.text}>{Strings.MyActivity}</Text>
             </View>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </View>
     </SafeAreaView>
@@ -134,7 +134,6 @@ const stylesSidebar = StyleSheet.create({
   text: {
     fontSize: 16,
     lineHeight: 18,
-    fontFamily: 'Roboto-Bold',
     color: COLORS.black,
     marginLeft: 36,
   },
@@ -157,7 +156,6 @@ const stylesSidebar = StyleSheet.create({
     alignSelf: 'center',
     color: COLORS.white,
     marginRight: '5%',
-    fontFamily: 'Roboto-Bold',
   },
 });
 

@@ -3,11 +3,12 @@ import React, { useState, useEffect } from 'react';
 import {
     SafeAreaView,
     View,
-    Text,
     StyleSheet,
     FlatList,
     ActivityIndicator,
 } from 'react-native';
+
+import TextCard from '../../components/TextCard'
 
 const QuotesTextScreen = () => {
     const [loading, setLoading] = useState(false);
@@ -18,14 +19,13 @@ const QuotesTextScreen = () => {
     useEffect(() => getData(), []);
 
     const getData = () => {
-        console.log(offset);
+        // console.log(offset);
         if (!loading && !isListEnd) {
-            console.log('getData');
             setLoading(true);
-            fetch('https://aboutreact.herokuapp.com/getpost.php?offset=' + offset)
+            fetch('https://api.quotable.io/quotes?page=' + offset)
                 .then(response => response.json())
                 .then(responseJson => {
-                    console.log(responseJson);
+                    // console.log(responseJson);
                     if (responseJson.results.length > 0) {
                         setOffset(offset + 1);
                         setDataSource([...dataSource, ...responseJson.results]);
@@ -52,38 +52,17 @@ const QuotesTextScreen = () => {
     };
 
     const ItemView = ({ item }) => {
-        console.log(item)
         return (
-            <Text style={styles.itemStyle} onPress={() => getItem(item)}>
-                {item.id}
-                {'.'}
-                {item.title.toUpperCase()}
-            </Text>
+            <TextCard data={item} />
         );
-    };
-
-    const ItemSeparatorView = () => {
-        return (
-            <View
-                style={{
-                    height: 0.5,
-                    width: '100%',
-                    backgroundColor: '#C8C8C8',
-                }}
-            />
-        );
-    };
-
-    const getItem = item => {
-        alert('Id : ' + item.id + ' Title : ' + item.title);
     };
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <FlatList
+                showsVerticalScrollIndicator={false}
                 data={dataSource}
                 keyExtractor={(item, index) => index.toString()}
-                ItemSeparatorComponent={ItemSeparatorView}
                 renderItem={ItemView}
                 ListFooterComponent={renderFooter}
                 onEndReached={getData}
@@ -95,7 +74,7 @@ const QuotesTextScreen = () => {
 
 const styles = StyleSheet.create({
     footer: {
-        padding: 10,
+        padding: 8,
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',

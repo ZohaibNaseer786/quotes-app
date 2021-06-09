@@ -1,4 +1,7 @@
 export const Strings = {
+  NextButton: 'Next',
+  SkipButton: 'Skip',
+  GotIt: 'Got It',
   Buyer: 'Buyer',
   Seller: 'Seller',
   Login: 'Login',
@@ -28,7 +31,7 @@ export const ScreensName = {
   MyActivityScreen: 'My Activity',
   SplashScreen: 'Splash',
   WizardScreen: 'Wizard',
-  BuyerHomeScreen: 'Home',
+  HomeScreen: 'Home',
   SellerHomeScreen: 'Home ',
   FavoritesScreen: 'Favorites',
   AppScreen: 'AppScreen',

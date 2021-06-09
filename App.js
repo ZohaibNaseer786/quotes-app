@@ -8,12 +8,12 @@ import { store, persistor } from './src/redux/store/Store';
 
 const App = () => {
   return (
-    // <Provider store={store}>
-    //   <StatusBar barStyle={'light-content'} />
-    //   <PersistGate persistor={persistor}>
-    <RootStack />
-    //   </PersistGate>
-    // </Provider>
+    <Provider store={store}>
+      <StatusBar barStyle={'light-content'} />
+      <PersistGate persistor={persistor}>
+        <RootStack />
+      </PersistGate>
+    </Provider>
   );
 };
 

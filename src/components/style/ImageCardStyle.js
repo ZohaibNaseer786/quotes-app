@@ -11,11 +11,10 @@ export default StyleSheet.create({
         marginHorizontal: '2%',
         shadowOpacity: 0.2,
         elevation: 3,
-        marginTop: 8,
-        marginBottom: 20,
+        marginVertical: 4,
         shadowOffset: {
             width: 2,
-            height: 12,
+            height: 2,
         },
     },
     imageStyle: {
@@ -23,5 +22,18 @@ export default StyleSheet.create({
         width: '96%',
         margin: 8,
         backgroundColor: COLORS.loader_background
+    },
+    textContainer: {
+        margin: 8
+    },
+    contentText: {
+        fontSize: 16,
+        fontWeight: '900',
+        fontStyle: 'italic'
+    },
+    authorText: {
+        alignSelf: 'flex-end',
+        fontSize: 12,
+        fontWeight: 'bold'
     }
 });
